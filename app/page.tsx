@@ -1,14 +1,34 @@
-import Image from 'next/image';
+'use client';
+
+import { Button } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { Mail } from 'lucide-react';
 
 export default function Home() {
+  const [isloading, setIsloading] = useState(false);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1
-        className="text-4xl font-bold text-center text-gray-900"
-        style={{ lineHeight: 1.25 }}
-      >
-        Hello World
-      </h1>
-    </main>
+    <section className="flex h-[100vh] items-center justify-center">
+      {isloading ? (
+        <ButtonLoading />
+      ) : (
+        <Button
+          onClick={() => {
+            setIsloading(true);
+          }}
+        >
+          <Mail className="mr-2 h-4 w-4" /> Login with Email
+        </Button>
+      )}
+    </section>
+  );
+}
+
+export function ButtonLoading() {
+  return (
+    <Button disabled>
+      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      Loging in...
+    </Button>
   );
 }
