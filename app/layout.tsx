@@ -5,7 +5,7 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Keep Up',
+  title: 'Keep Up | Your Notes Assistant',
   description:
     'This Project is used to keep up the notes like a diary or a notion app',
 };
