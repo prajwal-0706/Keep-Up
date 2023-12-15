@@ -8,7 +8,7 @@ import {
   Settings,
   Trash,
 } from 'lucide-react';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
 import React, { ElementRef, useEffect, useRef, useState } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 import UserItem from './UserItem';
@@ -34,6 +34,7 @@ export default function Navigation() {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const search = useSearch();
   const settings = useSettings();
+  const router = useRouter();
 
   const create = useMutation(api.documents.create);
 
@@ -126,7 +127,9 @@ export default function Navigation() {
   };
 
   const handleCreate = () => {
-    const promise = create({ title: 'Untitled' });
+    const promise = create({ title: 'Untitled' }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
     toast.promise(promise, {
       loading: 'Creating a new note...',
       success: 'New note Created!',
