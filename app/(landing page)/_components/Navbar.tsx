@@ -1,15 +1,16 @@
 'use client';
 
+import { useConvexAuth } from 'convex/react';
+import { SignInButton, UserButton } from '@clerk/clerk-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+
 import useScrollTop from '@/hooks/use-scroll-top';
 import { cn } from '@/lib/utils';
 import Logo from './Logo';
 import { ModeToggle } from '@/components/mode-toggle';
-import { useConvexAuth } from 'convex/react';
-import { SignInButton, UserButton } from '@clerk/clerk-react';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/spinner';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 
 export default function Navbar() {
   const { isAuthenticated, isLoading } = useConvexAuth();
