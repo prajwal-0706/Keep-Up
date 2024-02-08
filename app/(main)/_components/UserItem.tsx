@@ -1,3 +1,7 @@
+import { SignOutButton, useUser } from '@clerk/clerk-react';
+import { ChevronsLeftRight, LogOutIcon } from 'lucide-react';
+import React from 'react';
+
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import {
   DropdownMenu,
@@ -6,9 +10,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { SignOutButton, useUser } from '@clerk/clerk-react';
-import { ChevronsLeftRight, LogOutIcon } from 'lucide-react';
-import React from 'react';
 
 export default function UserItem() {
   const { user } = useUser();

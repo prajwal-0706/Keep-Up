@@ -1,6 +1,15 @@
 'use client';
 
+import { useUser } from '@clerk/clerk-react';
+import { useMutation } from 'convex/react';
+import { MoreHorizontal, Trash } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
+
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
+import { api } from '@/convex/_generated/api';
+import { Id } from '@/convex/_generated/dataModel';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,17 +17,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Skeleton } from '@/components/ui/skeleton';
-import { api } from '@/convex/_generated/api';
-import { Id } from '@/convex/_generated/dataModel';
-import { useUser } from '@clerk/clerk-react';
-import { useMutation } from 'convex/react';
-import { MoreHorizontal, Trash } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
 
 export default function Menu({ documentId }: { documentId: Id<'documents'> }) {
-  const router = useRouter();
   const { user } = useUser();
   const archive = useMutation(api.documents.archive);
 

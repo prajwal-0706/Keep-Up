@@ -1,4 +1,23 @@
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import React, { ElementRef, useEffect, useRef, useState } from 'react';
+import { toast } from 'sonner';
+
 import { cn } from '@/lib/utils';
+import { useMediaQuery } from 'usehooks-ts';
+import UserItem from './UserItem';
+import { useMutation } from 'convex/react';
+import { api } from '@/convex/_generated/api';
+import Item from './Item';
+import DocumentList from './DocumentList';
+import TrashBox from './TrashBox';
+import { useSearch } from '@/hooks/use-search';
+import { useSettings } from '@/hooks/use-settings';
+import Navbar from './Navbar';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 import {
   ChevronsLeft,
   MenuIcon,
@@ -8,25 +27,6 @@ import {
   Settings,
   Trash,
 } from 'lucide-react';
-import { useParams, usePathname, useRouter } from 'next/navigation';
-import React, { ElementRef, useEffect, useRef, useState } from 'react';
-import { useMediaQuery } from 'usehooks-ts';
-import UserItem from './UserItem';
-import { useMutation } from 'convex/react';
-import { api } from '@/convex/_generated/api';
-import Item from './Item';
-import { toast } from 'sonner';
-import DocumentList from './DocumentList';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@/components/ui/popover';
-import TrashBox from './TrashBox';
-import { Skeleton } from '@/components/ui/skeleton';
-import { useSearch } from '@/hooks/use-search';
-import { useSettings } from '@/hooks/use-settings';
-import Navbar from './Navbar';
 
 export default function Navigation() {
   const pathname = usePathname();
