@@ -1,5 +1,7 @@
 'use client';
+
 import React, { useEffect, useState } from 'react';
+
 import SettingModal from '../modals/SettingModal';
 import CoverImageModal from '../modals/CoverImageModal';
 

@@ -1,13 +1,14 @@
 'use client';
 
-import { Doc } from '@/convex/_generated/dataModel';
-import { IconPicker } from './IconPicker';
-import { Button } from './ui/button';
 import { ImageIcon, Smile, X } from 'lucide-react';
 import { ElementRef, useRef, useState } from 'react';
 import { useMutation } from 'convex/react';
-import { api } from '@/convex/_generated/api';
 import TextareaAutoSize from 'react-textarea-autosize';
+
+import { Doc } from '@/convex/_generated/dataModel';
+import { IconPicker } from './IconPicker';
+import { Button } from './ui/button';
+import { api } from '@/convex/_generated/api';
 import { useCoverImage } from '@/hooks/use-cover-image';
 
 interface ToolbarProps {
