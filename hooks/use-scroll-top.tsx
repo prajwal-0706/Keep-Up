@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function useScrollTop(threshold = 10) {
   const [scrolled, setScrolled] = useState(false);
